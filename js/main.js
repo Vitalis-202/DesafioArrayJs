@@ -13,6 +13,7 @@ class Game{
 }
 //Arreglo de games
 let gameList = [];
+let game;
 
 //Crear un game
 function crearGame(){
@@ -23,32 +24,73 @@ function crearGame(){
 }
 //Cargar un game
 function cargarGame(game){
-    gameList.push(game)
+    gameList.push(game);
+}
+//Eliminar un game
+function eliminarUltimoGame(){
+    gameList.pop();
 }
 
-// //MENU
-// let comprobacion;
-// do{
-//     comprobacion = prompt("Ingrese un nombre de polera o escriba FIN para terminar.");
+//Invertir lista
+function invertirLista(){
+    gameList.reverse();
+}
 
-//     if(comprobacion === "fin" || comprobacion === "FIN" || comprobacion === "Fin"){
-//         break;
-//     }else{
-//         nombre = comprobacion;
-//         let precio = prompt("Ingrese el precio de la polera");
-//         let detalle = prompt("Ingrese el detalle de la polera");
-//         let cantidad = prompt("Ingrese la cantidad de la polera");
-//         let talla = prompt("Ingrese la talla de la polera");
-//         arrayPoleras.push(new Polera(nombre,precio,detalle,cantidad,talla));
-//     }
+//MENU
+let comprobacion;
+do{
+    comprobacion = prompt("*Simulador Games* "+"\n"+
+    "Escoge una alternativa:"+"\n"+
+    "1.Agregar Game a la lista."+"\n"+
+    "2.Eliminar último Game de la lista."+"\n"+
+    "3.Ver lista."+"\n"+
+    "4.Lista inversa."+"\n"+
+    "5.Salir");
+
+    if(comprobacion === "5"){
+        break;
+    }else if(comprobacion=="1"){
+        game = crearGame();
+        console.log(game);
+        cargarGame(game);
+    }else if(comprobacion=="2"){
+        if(gameList.length<1){
+            alert("La lista se encuentra vacía, no se puede eliminar registro.")
+        }else{
+            eliminarUltimoGame();
+        }
+    }
+    else if(comprobacion=="3"){
+        let contador=1;
+        let texto="";
+        gameList.forEach(element => {
+            if(contador === 1){
+                texto="Game #"+contador+" nombre: "+element.nombre+ " precio: "+element.precio+"\n";
+            }else{
+                texto=texto + "Game #"+contador+" nombre: "+element.nombre+ " precio: "+element.precio+"\n";
+            }
+            console.log(texto);
+            contador++;
+        });
+        alert(texto)
+    }else if(comprobacion=="4"){
+        invertirLista();
+        let contador=1;
+        let texto="";
+        gameList.forEach(element => {
+            if(contador === 1){
+                texto="Game #"+(gameList.length-contador+1)+" nombre: "+element.nombre+ " precio: "+element.precio+"\n";
+            }else{
+                texto=texto + "Game #"+(gameList.length-contador+1)+" nombre: "+element.nombre+ " precio: "+element.precio+"\n";
+            }
+            console.log(texto);
+            contador++;
+        });
+        alert(texto)
+        invertirLista();
+    }
+    else{
+        alert("Valor inválido, vuelva a ingresar")
+    }
     
-// }while(comprobacion != "fin" || comprobacion != "FIN"|| comprobacion != "Fin")
-
-
-//Ejecucion del código
-//Creación del obj
-let game = crearGame();
-console.log(game);
-//Agregar a la lista
-cargarGame(game);
-console.log(gameList);
+}while(comprobacion != "5")
