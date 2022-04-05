@@ -2,7 +2,8 @@
 
 class Game{
     //Metodo constructor
-    constructor(nombre,precio){
+    constructor(id,nombre,precio){
+        this.id = parseFloat(id);
         this.nombre = nombre;
         this.precio = parseFloat(precio);
     }
@@ -14,12 +15,14 @@ class Game{
 //Arreglo de games
 let gameList = [];
 let game;
+let id= 0;
 
 //Crear un game
 function crearGame(){
+    id = id +1;
     let nombre = prompt("Ingrese nombre:");
     let precio = parseFloat(prompt("Ingrese precio:"));
-    const game = new Game(nombre,precio);
+    const game = new Game(id,nombre,precio);
     return game;
 }
 //Cargar un game
@@ -65,9 +68,9 @@ do{
         let texto="";
         gameList.forEach(element => {
             if(contador === 1){
-                texto="Game #"+contador+" nombre: "+element.nombre+ " precio: "+element.precio+"\n";
+                texto="Game #"+element.id+" nombre: "+element.nombre+ " precio: "+element.precio+"\n";
             }else{
-                texto=texto + "Game #"+contador+" nombre: "+element.nombre+ " precio: "+element.precio+"\n";
+                texto=texto + "Game #"+element.id+" nombre: "+element.nombre+ " precio: "+element.precio+"\n";
             }
             console.log(texto);
             contador++;
@@ -79,9 +82,9 @@ do{
         let texto="";
         gameList.forEach(element => {
             if(contador === 1){
-                texto="Game #"+(gameList.length-contador+1)+" nombre: "+element.nombre+ " precio: "+element.precio+"\n";
+                texto="Game #"+(element.id)+" nombre: "+element.nombre+ " precio: "+element.precio+"\n";
             }else{
-                texto=texto + "Game #"+(gameList.length-contador+1)+" nombre: "+element.nombre+ " precio: "+element.precio+"\n";
+                texto=texto + "Game #"+(element.id)+" nombre: "+element.nombre+ " precio: "+element.precio+"\n";
             }
             console.log(texto);
             contador++;

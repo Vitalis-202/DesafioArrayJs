@@ -1,13 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ListaGames</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <title>GameList</title>
 </head>
 <body>
+    <header class="container-flex">
+        <div class="row">
+            <div class="col">
+                <h1 class="title">
+                    GAMELIST
+                </h1>
+            </div>
+        </div>
+    </header>
+    <main>
+        <form class="container-flex">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputName">Title:</label>
+                    <input type="text" class="form-control" id="inputName" placeholder="Game name...">
+                </div>
+                
+                <div class="form-group col-md-6">
+                    <label for="inputPrice">Price:</label>
+                    <input type="number" class="form-control" id="inputPrice" placeholder="Price...">
+                </div>
+            </div>
+            <!--Botones de acción-->
+            <div class="form-row">
+                <div class="col">
+                    <input type="button" class="btn btn-primary" value="Add game" onclick="addGame();"/>
+                </div>
+            </div>
+        </form>
+    </main>
+    <section id="contenedorLista">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-3" id="gameId"><h4>ID</h4></div>
+            <div class="col-md-4" id="gameName"><h4>TITLE</h4></div>
+            <div class="col-md-3" id="gamePrice"><h4>PRICE (USD)</h4></div>
+            <div class="col-md-1"></div>
+        </div>
+    </section>
+
     <!--Script de JS-->
-    <script src="./js/main.js"></script>
+    <!--<script src="./js/main.js"></script>-->
+    <script src="./js/agregar.js"></script>
 </body>
 </html>
