@@ -1,0 +1,15 @@
+/*Variables*/
+/*Reglas generales*/
+* {
+    margin: 0;
+    padding: 0; 
+}
+
+body {
+    min-width: 320px;
+    overflow-x: hidden; 
+}
+
+html {
+    font-size: 62.5%; 
+}

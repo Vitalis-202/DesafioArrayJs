@@ -1,5 +1,4 @@
 //Creación de objeto games
-
 class Game{
     //Metodo constructor
     constructor(id,nombre,precio){
